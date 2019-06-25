@@ -17,8 +17,16 @@ strong {
 
 a:link {
     text-decoration: none;
-}
-
-a:hover {
+  }
+  
+  a:visited {
+    text-decoration: none;
+  }
+  
+  a:hover {
     text-decoration: underline;
-}
+  }
+  
+  a:active {
+    text-decoration: underline;
+  }
