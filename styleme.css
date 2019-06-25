@@ -17,24 +17,24 @@ strong {
 
 a:link {
     text-decoration: none;
-  }
-  
-  a:visited {
+}
+
+a:visited {
     text-decoration: none;
-  }
-  
-  a:hover {
+}
+
+a:hover {
     text-decoration: underline;
-  }
-  
-  p::first-letter {
+}
+
+p::first-letter {
     font-size: 1.5em;
-  }
+}
 
-  dt {
+dt {
     font-weight: bold;
-  }
+}
 
-  dd {
+dd {
     color: #D85426;
-  }
+}
