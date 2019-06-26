@@ -25,5 +25,5 @@ a {
 }
 
 .tbsp, .tsp {
-    text-decoration: double;
+    text-decoration: underline;
 }
