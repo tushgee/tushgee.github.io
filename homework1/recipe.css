@@ -27,3 +27,12 @@ a {
 .tbsp, .tsp {
     text-decoration: underline;
 }
+
+.deleted {
+    text-decoration: line-through;
+}
+
+blockquote {
+    background-color: #ffffa8;
+    font-style: italic;
+}
