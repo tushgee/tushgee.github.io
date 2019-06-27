@@ -13,6 +13,7 @@ h1, h2, h3, h4, h5, h6 {
     font-family: "Lucida Sans Unicode", Helvetica, Arial, sans-serif;
     font-size: 18pt;
     text-decoration: underline;
+    letter-spacing: 0.25em;
 }
 
 h1 {
