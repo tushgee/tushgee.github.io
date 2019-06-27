@@ -28,6 +28,9 @@ a {
     color: #A4A400;
 }
 
+img {
+    display: block;
+}
 ul {
     list-style-image: url('pie_icon.gif');
 }
