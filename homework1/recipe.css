@@ -27,7 +27,7 @@ a {
 }
 
 ul {
-    list-style-image: url('images/pie_icon.gif');
+    list-style-image: url('pie_icon.gif');
 }
 
 .tbsp, .tsp {
