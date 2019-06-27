@@ -25,6 +25,10 @@ a {
     color: #A4A400;
 }
 
+ul {
+    list-style-image: url('sqpurple.gif');
+}
+
 .tbsp, .tsp {
     text-decoration: underline;
 }
