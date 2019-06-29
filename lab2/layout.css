@@ -1,0 +1,41 @@
+body {
+    background: url("http://mumstudents.org/cs472/2019-07-RS/Labs/2/background.gif");
+}
+
+#container {
+    border: 5px solid green;
+    margin: auto 10%;
+    background: white;
+}
+
+header {
+    border: 5px solid red;
+}
+
+footer {
+    margin: auto 10%;
+    padding: 10px 0px;
+}
+
+
+h2 {
+    border:5px solid orange;
+}
+
+.post {
+    border: 5px solid blue;
+    background: #E8FBFB;
+    padding: 5px;
+    margin: 10px 0px 0px 0px;
+}
+
+
+.post h2 {
+    border: 0px solid orange;
+}
+
+span.date {
+    border: 5px solid maroon;
+}
+
+
