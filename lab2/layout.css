@@ -3,13 +3,13 @@ body {
 }
 
 #container {
-    border: 5px solid green;
+    border: 10px solid white;
     margin: auto 10%;
     background: white;
 }
 
 header {
-    border: 5px solid red;
+    background:#A8F0F0;
 }
 
 footer {
@@ -17,25 +17,40 @@ footer {
     padding: 10px 0px;
 }
 
+h1 {
+    text-align: right;
+}
 
 h2 {
-    border:5px solid orange;
+    font-size: 14pt;
+    text-align: right;
 }
 
 .post {
-    border: 5px solid blue;
+    border: 4px solid #C2E9E9;
+    border-radius: 15px;
     background: #E8FBFB;
     padding: 5px;
-    margin: 10px 0px 0px 0px;
+    margin-top: 10px;
+    overflow: auto;
 }
 
 
 .post h2 {
     border: 0px solid orange;
+    text-align: justify;
+}
+
+.post p {
+    text-align: justify;
+}
+
+.post img {
+    float: right;
 }
 
 span.date {
-    border: 5px solid maroon;
+    border-bottom: 2px dashed blue;
 }
 
 
