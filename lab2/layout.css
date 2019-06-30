@@ -80,4 +80,10 @@ span.date {
     border-bottom: 2px dashed blue;
 }
 
+a:link, a:visited {
+    text-decoration: none;
+}
 
+a:hover {
+    text-decoration: underline;
+}
