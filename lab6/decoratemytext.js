@@ -36,7 +36,7 @@ function increaseSize() {
 	} else {
         clearInterval(timer);
         timer = null;
-        document.body.style.backgroundColor = "red";
+      //  document.body.style.backgroundColor = "red";
     }
 }
 
