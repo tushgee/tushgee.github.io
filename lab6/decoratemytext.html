@@ -28,7 +28,7 @@
 		<div>
 			<fieldset>
 				<legend>Text</legend>
-				<textarea id="myText" rows="4" cols="30">
+				<textarea id="myTextArea" rows="4" cols="30">
 					Sample Item 1
 					Sample Item 2
 				</textarea>
@@ -36,7 +36,7 @@
 			<fieldset>
 				<legend>Decoration</legend>
 				<input type="submit" name="btnBigger" value="Bigger Decorations!" onclick="biggerText()" /> <br/>
-				<input type="checkbox" name="bling" /> Bling
+				<input id="myCheckBox" type="checkbox" name="bling" onchange="addStyles()" /> Bling
 			</fieldset>
 		
 		
