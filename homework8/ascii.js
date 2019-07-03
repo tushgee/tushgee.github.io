@@ -4,7 +4,6 @@ let frameIndex = 0;
 let frames;
 
 
-//Tiny (7pt), Small (10pt), Medium (12pt), Larg e (16pt), Extra Large (24pt), XXL (32pt)
 
 
 
@@ -35,6 +34,12 @@ function stop() {
     timer = null;
     //document.getElementById("myTxtStage").value = "";
   }
+}
+
+
+
+function changeSize() {
+  document.getElementById("myTxtStage").style.fontSize = document.getElementById("sizeId").value;
 }
 
 window.onload = function() {

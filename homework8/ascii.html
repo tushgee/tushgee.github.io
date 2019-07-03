@@ -28,8 +28,13 @@
 			</fieldset>
 			<fieldset>
 				<legend>Size:</legend>
-				<select name="size">
-					<option>Medium</option>
+				<select id="sizeId" name="size" onchange="changeSize()">
+					<option value="7pt">Tiny</option>
+					<option value="10pt">Small</option>
+					<option value="12pt" selected>Medium</option>
+					<option value="16pt">Large</option>
+					<option value="24pt">Extra Large</option>
+					<option value="32pt">XXL</option>
 				</select>
 			</fieldset>
 			<fieldset>
