@@ -2,9 +2,9 @@
 <html lang="en">
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-		<title>ASCIImation</title>
+		<title>CSE 190 M ASCII Animation Viewer</title>
 		<link href="ascii.css" type="text/css" rel="stylesheet">
-			<script src="animations.js"></script>
+		<script src="animations.js"></script>
 		<script src="ascii.js"></script>
 	</head>
 	<body>
@@ -18,8 +18,12 @@
 			</fieldset>
 			<fieldset>
 				<legend>Animation:</legend>
-				<select name="animation">
+				<select id="animationId"name="animation" onchange="setAnimation()">
 					<option>Blank</option>
+					<option>Exercise</option>
+					<option>Juggler</option>
+					<option>Bike</option>
+					<option>Dive</option>
 				</select>
 			</fieldset>
 			<fieldset>

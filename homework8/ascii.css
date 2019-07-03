@@ -19,6 +19,7 @@ h1 {
     height: 400px;
     margin: auto;
     display: block;
+    overflow: auto;
 
 }
 
