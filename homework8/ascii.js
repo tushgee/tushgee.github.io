@@ -32,19 +32,39 @@ function stop() {
 	if (timer) {
     clearInterval(timer);
     timer = null;
-    //document.getElementById("myTxtStage").value = "";
   }
 }
-
-
 
 function changeSize() {
   document.getElementById("myTxtStage").style.fontSize = document.getElementById("sizeId").value;
 }
 
+
+function turbo() {
+
+  if (document.getElementById("chbTurbo").checked== true) {
+    if (timer) {
+      clearInterval(timer);
+      
+    } 
+    timer = setInterval(setAnimation, 50);
+  } else {
+    if (timer) {
+      clearInterval(timer);
+      
+    } 
+    timer = setInterval(setAnimation, 250);
+
+  };
+
+
+}
+
+
 window.onload = function() {
   document.getElementById('btnStart').onclick = animate;
   document.getElementById('btnStop').onclick = stop;
+  document.getElementById('chbTurbo').onclick = turbo;
 }
 
 
