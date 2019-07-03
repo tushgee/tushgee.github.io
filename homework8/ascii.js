@@ -8,7 +8,7 @@ let frames;
 
 
 function setAnimation() {
-    const animation = document.getElementById("animationId").value;
+    const animation = document.getElementById("selAnimation").value;
     if (animation.toUpperCase()!="BLANK"){
       //  document.getElementById("myTxtStage").value = animation.toUpperCase();
         document.getElementById("myTxtStage").value = ANIMATIONS[animation];
@@ -23,7 +23,10 @@ function setAnimation() {
 
 function animate() {
 	if (timer === null) {
-		timer = setInterval(setAnimation, 250);
+    timer = setInterval(setAnimation, 250);
+    document.getElementById('btnStart').disabled = true;
+    document.getElementById('selAnimation').disabled = true;
+    document.getElementById('btnStop').disabled = false;
 	} 
       
 }
@@ -32,6 +35,10 @@ function stop() {
 	if (timer) {
     clearInterval(timer);
     timer = null;
+    document.getElementById('btnStop').disabled = true;
+    document.getElementById('btnStart').disabled = false;
+    document.getElementById('selAnimation').disabled = false;
+   
   }
 }
 
@@ -47,13 +54,13 @@ function turbo() {
       clearInterval(timer);
       
     } 
-    timer = setInterval(setAnimation, 50);
+    if (document.getElementById('btnStart').disabled) timer = setInterval(setAnimation, 50);
   } else {
     if (timer) {
       clearInterval(timer);
       
     } 
-    timer = setInterval(setAnimation, 250);
+    if (document.getElementById('btnStart').disabled) timer = setInterval(setAnimation, 250);
 
   };
 
@@ -65,6 +72,7 @@ window.onload = function() {
   document.getElementById('btnStart').onclick = animate;
   document.getElementById('btnStop').onclick = stop;
   document.getElementById('chbTurbo').onclick = turbo;
+  document.getElementById('btnStop').disabled = true;
 }
 
 
