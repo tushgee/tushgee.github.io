@@ -1,3 +1,5 @@
+(function(){
+
 "use strict";
 let timer = null;
 let frameIndex = 0;
@@ -43,7 +45,7 @@ function stop() {
 }
 
 function changeSize() {
-  document.getElementById("myTxtStage").style.fontSize = document.getElementById("sizeId").value;
+  document.getElementById("myTxtStage").style.fontSize = document.getElementById("selSize").value;
 }
 
 
@@ -73,6 +75,10 @@ window.onload = function() {
   document.getElementById('btnStop').onclick = stop;
   document.getElementById('chbTurbo').onclick = turbo;
   document.getElementById('btnStop').disabled = true;
+  document.getElementById('selAnimation').onchange = setAnimation;
+  document.getElementById('selSize').onchange = changeSize;
 }
+
+})();
 
 
