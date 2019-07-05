@@ -1,0 +1,11 @@
+/* input[type="text"] {
+    display: block;
+} */
+
+input {
+    margin: 5px;
+}
+textarea {
+    width: 450px;
+    height: 200px;
+}
