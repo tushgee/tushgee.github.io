@@ -1,35 +1,46 @@
-let accountInfoList=[];
-
-let Account = function(){
+const Bicycle = (function(){
     "use strict";
-    let name;
-    let balance;  
+    let func1 = function createBicyclePrototype(){
+        let speed = 0;
+        return {
+            speed: speed,
+            applyBrake: (val) =>  { return speed = speed - val},
+            speedup: function(val) { 
+                return this.speed = this.speed + val;
+            }
 
-    function newAccount(nm="Tushig", bal=500000){
-        name = nm;
-        balance = bal;
+        }
+    }
+
+    let func2 = function createMountainBikePrototype(prototype){
+        
+        let ob = Object.create(prototype);
+        ob.gear = 1;
+        ob.setGear = function(gear) {
+            return this.gear = gear;
+        };
+        
+        return ob;
+        
+    }
+
+    let start = function start(){
+        
+        let bicycleProtoype = func1();
+        let mountainBikePrototype = func2(bicycleProtoype);
+        let bicycle1 = Object.create(bicycleProtoype);
+        bicycle1.speedup(3);
+        let bicycle2 = Object.create(mountainBikePrototype);
+
+        console.log("bicycle1.speed = " + bicycle1.speed);
+        console.log("bicycle2.speed = " + bicycle2.speed);
+        console.log("bicycle2.gear = " + bicycle2.gear);
+        
     }
 
     return {
-        createAccount: function (name, bal){
-            newAccount(name, bal);
-        },
-        getName: function(){
-            return name;
-        }
+        start: start
     }
-};
+})();
 
-function accountHandler(){
-    acc = Account();
-    acc.createAccount("Naya",150000);
-    console.log(acc.getName());
-    
-    //accountInfoList.push(acc.createAccount());
-    //console.log(accountInfoList[0].getName());
-}
-
-window.onload = function() {
-    document.getElementById('btnSubmit').onclick = accountHandler;
-  }
-  
+window.onload = Bicycle.start;
