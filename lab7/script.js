@@ -1,32 +1,40 @@
+"use strict";
 let accountInfoList=[];
 
-let Account = function(){
-    "use strict";
-    let name;
-    let balance;  
+function accountFactory(){
 
-    function newAccount(nm="Tushig", bal=500000){
-        name = nm;
-        balance = bal;
-    }
+    function Account(nm, bal){
+        let name = nm;
+        let balance = parseFloat(bal);
+        return { 
 
+            getName: function() {
+                return name;
+            }, 
+            getBalance: function() {
+                return balance;
+            }  
+        };
+    };
+    
     return {
-        createAccount: function (name, bal){
-            newAccount(name, bal);
-        },
-        getName: function(){
-            return name;
+        createAccount(){
+            return new Account(document.getElementById('idAccount').value, document.getElementById('idDeposit').value);
         }
     }
-};
 
-function accountHandler(){
-    acc = Account();
-    acc.createAccount("Naya",150000);
-    console.log(acc.getName());
+}
+
+
+function accountHandler() {
+    let accountListTxt="";
+    accountInfoList.push(accountFactory().createAccount());
     
-    //accountInfoList.push(acc.createAccount());
-    //console.log(accountInfoList[0].getName());
+    for (let a of accountInfoList) {
+        accountListTxt +=  a.getName()+ " " + a.getBalance()+"\n";
+    }
+
+    document.getElementById('idTextArea').value = accountListTxt;
 }
 
 window.onload = function() {
