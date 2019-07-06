@@ -1,7 +1,7 @@
 "use strict";
 let accountInfoList=[];
 
-function accountFactory(){
+const AccountModule = (function() {
 
     function Account(nm, bal){
         let name = nm;
@@ -23,12 +23,12 @@ function accountFactory(){
         }
     }
 
-}
+})();
 
 
 function accountHandler() {
     let accountListTxt="";
-    accountInfoList.push(accountFactory().createAccount());
+    accountInfoList.push(AccountModule.createAccount());
     
     for (let a of accountInfoList) {
         accountListTxt += "Account name: " + a.getName()+ " " + "Balance: " + a.getBalance()+"\n";
