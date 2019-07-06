@@ -31,7 +31,7 @@ function accountHandler() {
     accountInfoList.push(accountFactory().createAccount());
     
     for (let a of accountInfoList) {
-        accountListTxt +=  a.getName()+ " " + a.getBalance()+"\n";
+        accountListTxt += "Account name: " + a.getName()+ " " + "Balance: " + a.getBalance()+"\n";
     }
 
     document.getElementById('idTextArea').value = accountListTxt;
