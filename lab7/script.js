@@ -1,7 +1,8 @@
-"use strict";
+
 let accountInfoList=[];
 
 const AccountModule = (function() {
+    "use strict";
 
     function Account(nm, bal){
         let name = nm;
