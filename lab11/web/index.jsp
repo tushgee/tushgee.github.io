@@ -8,9 +8,10 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
   <head>
-    <title>$Title$</title>
+    <title>We are listening...</title>
   </head>
   <body>
     <a href='support'>Contact CSTech </a>
+
   </body>
 </html>

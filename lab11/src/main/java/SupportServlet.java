@@ -1,27 +1,34 @@
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import java.io.IOException;
-import java.io.PrintWriter;
+import java.io.*;
+import javax.servlet.*;
+import javax.servlet.http.*;
+import java.util.Random;
 
 public class SupportServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         PrintWriter out = resp.getWriter();
         out.print("<html><head><title>Test</title></head><body>");
-        out.print("<form method='post'>");
-        out.print("<p>Please click the button</p>");
-        out.print("<input type='submit' value='Click me'/>");
-        out.print("</form>");
+        out.print("<form method=\"post\" />\n" +
+                "    Name: <input name=\"txtName\"/><br/>\n" +
+                "    Email address: <input name=\"txtEmail\"/><br/>\n" +
+                "    Problem: <input name=\"txtProblem\"/><br/>\n" +
+                "    Problem description: <textarea name=\"problemDescription\"></textarea><br/>\n" +
+                "    <input type=\"submit\" value=\"Help\" />\n" +
+                "</form>");
         out.print("</body></html>");
     }
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+
         PrintWriter out = resp.getWriter();
+        ServletContext sc = getServletContext();
+        Random rand = new Random();
+        int support_ticket_id = rand.nextInt(1000);
+
         out.print("<html><head><title>Test</title></head><body>");
-        out.print("<p>Postback received</p>");
+        out.print("<p>Thank you! <strong>" + req.getParameter("txtName") + "</strong> for contacting us. We should receive reply from us with in 24 hrs in your email address <strong>" +  req.getParameter("txtEmail") +
+                "</strong>. Let us know in our support email <strong>" +  sc.getInitParameter("support-email") +"</strong> if you don't receive reply within 24 hrs. Please be sure to attach your reference <strong>" + support_ticket_id + "</strong> in your email.</p>");
         out.print("</body></html>");
     }
 }
