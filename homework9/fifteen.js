@@ -61,9 +61,16 @@ $(function(){
                                     "top": y + 'px', 
                                     "backgroundPosition": -divs[e1].x + 'px ' + (-divs[e1].y) + 'px' });
         
+
+
+
+
     }
     $("#shufflebutton").click(function () {
         swapPiece(0,3);
+        alert("Yes, it is working!")
+        swapPiece(3,0);
+        
     });
   
 
