@@ -1,8 +1,10 @@
 import java.io.*;
 import javax.servlet.*;
 import javax.servlet.http.*;
-import java.util.Random;
+import javax.servlet.annotation.*;
 
+import java.util.Random;
+@WebServlet("/help")
 public class SupportServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
