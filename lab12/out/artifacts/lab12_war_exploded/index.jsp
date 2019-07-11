@@ -8,9 +8,16 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
   <head>
-    <title>$Title$</title>
+    <title>Secure login:</title>
   </head>
   <body>
-  $END$
+
+    <form method="post" action="login" />
+        Name: <input name="txtUsername"/><br/>
+        Password: <input name="txtPassword" type="password" /><br/>
+        <input type="submit" value="Login" />
+    </form>
+
+
   </body>
 </html>
