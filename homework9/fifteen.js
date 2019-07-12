@@ -51,8 +51,8 @@ $(function(){
                 //$("h1").text( txt + " "+ emptyCol % puzzleSize + ":" + emptyRow * puzzleSize );
                 if (movable(txt)) {
                    swapPiece(txt, emptyCol % puzzleSize + emptyRow * puzzleSize );
-                   //moveToBlank(txt);
                 }
+                if (checkWinner()) $("h1").text( "Congrats, You won!" );
             });
 
             $(div).mouseover(function(){
@@ -99,6 +99,26 @@ $(function(){
 
     }
 
+    function movable(i){
+        // calculate row and column for this piece
+        var row = Math.floor(i / puzzleSize);
+        var col = i % puzzleSize ;
+        return Math.abs(row-emptyRow) + Math.abs(col-emptyCol) == 1;
+    }
+    
+    function checkWinner(){
+        var s = 0;
+        for (var i=0; i<divs.length; i++) {
+            div = $(divs[i]);
+            if (i == parseInt(div.text()) - 1) {
+                s +=1;
+            }
+        }
+        return s==divs.length;
+
+    }
+  
+
     $("#shufflebutton").click(function () {
         for (var i = 0; i<=1000; i++){
             var index = parseInt(Math.random() * puzzleSize*puzzleSize-1);
@@ -108,12 +128,6 @@ $(function(){
         }
     });
 
-    function movable(i){
-        // calculate row and column for this piece
-        var row = Math.floor(i / puzzleSize);
-        var col = i % puzzleSize ;
-        return Math.abs(row-emptyRow) + Math.abs(col-emptyCol) == 1;
-    }
   
 
 });
