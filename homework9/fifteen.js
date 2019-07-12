@@ -2,11 +2,27 @@ $(function(){
     "use strict";
     var puzzleArea = $('#puzzlearea');
     var divs = $("#puzzlearea div");
+    var emptyRow = 3;
+    var emptyCol = 3;
+    
+
+
     console.log(divs);
       
     // initialize each piece
-    for (var i=0; i< divs.length; i++) {
-        var div = $(divs[i]);
+    for (var i=0; i<=divs.length; i++) {
+        
+        var div;
+        if (i==divs.length) {
+            divs[i] = document.createElement('div');
+            $(divs[i-1]).after(divs[i]);
+            div = $(divs[i]);
+            div.css({"backgroundSize": '0 0'});
+            //emptyRow + emptyCol
+        } else  {
+            div = $(divs[i]);
+       
+        }
         
         // calculate x and y for this piece
         var x = ((i % 4) * 100) ;
@@ -28,50 +44,82 @@ $(function(){
         divs[i].y = y;
 
 
-        clickHandler("#square_" + i % 4 + "_" + Math.floor(i / 4), div.x+ ":" + div.y);
+        clickHandler("#square_" + i % 4 + "_" + Math.floor(i / 4), i);
 
         function clickHandler(id, txt){
+            
             $(id).click(function(){
-                $("h1").text(txt);
+                $("h1").text( txt + " "+ emptyCol % 4 + ":" + emptyRow * 4 );
+                if (movable(txt)) {
+                   swapPiece(txt, emptyCol % 4 + emptyRow * 4 );
+                   //moveToBlank(txt);
+                }
             });
+
+            $(div).mouseover(function(){
+                if (movable(txt)) {
+                    $(divs[txt]).addClass("movablepiece");
+                }
+            });
+
+            $(div).mouseout(function(){
+                $(divs[txt]).removeClass("movablepiece");
+
+
+            });
+
+/*
+            $(div.puzzleArea).mouseout(function(){
+                $(div.puzzleArea).css({"border": '5px solid black'});
+            });
+*/
         }
 
     }    
-    function swapPiece(e1, e2){
 
+    function swapPiece(e1, e2){
         var txt = $(divs[e1]).text();
-        var x = divs[e1].left;
-        var y = divs[e1].top;
-     
-       // alert($(divs[e2]).css("left") + ":" + $(divs[e2]).css("top") + " ; " + divs[e2].x + ":" + divs[e2].y)
+        var x = divs[e1].x;
+        var y = divs[e1].y;
+   
 
         $(divs[e1]).text($(divs[e2]).text());
-
-        // set basic style and background
-        $(divs[e1]).css({"border": '5px solid green',
-                                    "left": $(divs[e2]).left + 'px', 
-                                    "top": $(divs[e2]).top + 'px', 
-                                    "backgroundPosition": -divs[e2].x + 'px ' + (-divs[e2].y) + 'px' });
-
+        $(divs[e1]).css({
+                       // "backgroundPosition": -divs[e2].x + 'px ' + (-divs[e2].y) + 'px'    // if cell image has to be shown
+                        "backgroundSize": '0 0'
+                        });
+        divs[e1].x = divs[e2].x;
+        divs[e1].y = divs[e2].y;
+        
         
         $(divs[e2]).text(txt);
-
-        $(divs[e2]).css({"border": '5px solid blue',
-                                    "left": x + 'px', 
-                                    "top": y + 'px', 
-                                    "backgroundPosition": -divs[e1].x + 'px ' + (-divs[e1].y) + 'px' });
+        $(divs[e2]).css({"backgroundPosition": -x + 'px ' + (-y) + 'px',
+                        "backgroundSize": '400px 400px'
+                        });
+        divs[e2].x = x;
+        divs[e2].y = y;
         
-
-
-
+        // Empty cell will change
+        var row = Math.floor(e1 / 4);
+        var col = e1 % 4 ;
+        emptyRow = row;
+        emptyCol = col;
 
     }
+
     $("#shufflebutton").click(function () {
-        swapPiece(0,3);
-        alert("Yes, it is working!")
-        swapPiece(3,0);
+        swapPiece(0,1);
+  
         
     });
+
+    function movable(i){
+        // calculate row and column for this piece
+        var row = Math.floor(i / 4);
+        var col = i % 4 ;
+        // alert(Math.abs(row-emptyRow) + ":" + Math.abs(col-emptyCol));
+        return Math.abs(row-emptyRow) + Math.abs(col-emptyCol) == 1;
+    }
   
 
 });
