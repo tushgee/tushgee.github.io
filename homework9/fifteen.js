@@ -100,7 +100,7 @@ $(function(){
     }
 
     $("#shufflebutton").click(function () {
-        for (var i = 0; i<=500; i++){
+        for (var i = 0; i<=1000; i++){
             var index = parseInt(Math.random() * puzzleSize*puzzleSize-1);
             if (movable(index)) {
                 swapPiece(index, emptyCol % puzzleSize + emptyRow * puzzleSize );
