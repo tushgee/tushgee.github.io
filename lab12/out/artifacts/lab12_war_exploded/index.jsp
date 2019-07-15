@@ -12,9 +12,24 @@
   </head>
   <body>
 
+  <%
+      String userName = "", rememberVal="";
+      for (Cookie cookie: request.getCookies()){
+          if (cookie.getName().equals("username")){
+              userName = cookie.getValue();
+          }
+          if (cookie.getName().equals("remember")){
+              rememberVal = cookie.getValue();
+          }
+
+      }
+  %>
+
     <form method="post" action="login" />
-        Name: <input name="txtUsername"/><br/>
+        Name: <input name="txtUsername"  value="<%= userName %>" /><br/>
         Password: <input name="txtPassword" type="password" /><br/>
+        <label>Remember me:</label><input name="chkRemember" type="checkbox" value="remembered"
+                <%= "remembered".equals(rememberVal.trim()) ? "checked=checked" : "" %> /><br/>
         <input type="submit" value="Login" />
     </form>
 
