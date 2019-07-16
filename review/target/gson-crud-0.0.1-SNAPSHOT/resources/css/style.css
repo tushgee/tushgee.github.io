@@ -198,6 +198,7 @@ label {
     background: url("../images/stars.png");
     height: 40px;
     width: 170px;
+    display: block;
 
 
 }

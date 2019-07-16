@@ -42,8 +42,8 @@
 
             <div id="reviewSummary">
                     <span class="averageStars"></span>
-                    <span class="averageScore">3.6/5</span>
-                    <span class="reviewCount">Total 31 reviews</span>
+                    <span class="averageScore">3/5</span>
+                    <span class="reviewCount">Total 2 reviews</span>
                     <span id="btn_add_review"> + Add Review </span> 
             </div>
          

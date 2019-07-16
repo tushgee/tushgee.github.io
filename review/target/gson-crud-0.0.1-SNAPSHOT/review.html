@@ -10,7 +10,7 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-    <title>Title</title>
+    <title>Reviews</title>
     <script type="text/javascript"
             src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script type="text/javascript" src="resources/js/script.js"></script>
@@ -37,27 +37,33 @@
                 <h1>ENJOY A LUXURY EXPERIENCE!</h1>
             </div>
         </header>
+<script type="text/javascript">
+ function testStar(){
+     // 46, 86 , 128, 170, 211
 
+        var stars = [46, 86 , 128, 170, 211];
+        var x = 0;
+        var y = -stars[0];
+var totalReviews = 4;
+        //$(".averageStars").animate({height: "300px"});
+
+        $(".averageStars").css({"backgroundPosition": -x + 'px ' + (-y) + 'px' });
+			$(".reviewCount").text("Total " + totalReviews + " reviews");
+
+
+
+	}
+</script>
         <div id="content">
 
             <div id="reviewSummary">
-                <span class="averageStars"></span>
-                <span class="averageScore">3.6/5</span>
-                <span class="reviewCount">Total 31 reviews</span>
-                <span id="btn_add_review"> + Add Review </span> 
+                    <span class="averageStars"></span>
+                    <span class="averageScore">3.6/5</span>
+                    <span class="reviewCount">Total 31 reviews</span>
+                    <span id="btn_add_review"> + Add Review </span> 
             </div>
+            <a href="#" onclick="testStar()">Test</a>
          
-
-            <c:forEach items="${reviews}" var="review">
-                <div class="review">
-                    <div class="score"><c:out value="${review.getReviewScore()}" />/5</div>
-                    <div class="name"><c:out value="${review.getReviewerName()}" /></div>
-                    <div class="date">2019.07.12</div>
-                    <div class="text">
-                        <span><c:out value="${review.getReviewText()}" /></span>
-                    </div>
-                </div>
-            </c:forEach>
             <div id="reviewForm">
 
                 <div>
@@ -69,7 +75,7 @@
                     <select id="review_score" placeholder="Your Score" >
                         <option value="1">1 star - Hated it</option>
                         <option value="2">2 stars - Disliked it </option>
-                        <option value="3">3 stars - It was ok</option>
+                        <option value="3" selected>3 stars - It was ok</option>
                         <option value="4">4 stars - Liked it</option>
                         <option value="5">5 stars - Loved it</option>
                     </select>
@@ -83,6 +89,17 @@
                     <input id="btn_add" type="submit" value="Submit" />
                 </div>
             </div>
+            <c:forEach items="${reviews}" var="review">
+                <div class="review">
+                    <div class="score"><c:out value="${review.getReviewScore()}" />/5</div>
+                    <div class="name"><c:out value="${review.getReviewerName()}" /></div>
+                    <div class="date">2019.07.12</div>
+                    <div class="text">
+                        <span><c:out value="${review.getReviewText()}" /></span>
+                    </div>
+                </div>
+            </c:forEach>
+
         </div>
         <footer>Copyright 2019</footer>
     </div>
